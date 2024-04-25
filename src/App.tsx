@@ -6,6 +6,8 @@ import { prefixer } from "stylis";
 import createCache from "@emotion/cache";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CssBaseline } from "@mui/material";
+import { RouterProvider } from "react-router-dom";
+import AppRouter from "./pages/AppRoutes";
 
 const cacheRtl = createCache({
   key: "muirtl",
@@ -17,7 +19,9 @@ function App() {
     <>
       <CacheProvider value={cacheRtl}>
         <CssBaseline />
-        <ThemeProvider theme={theme}></ThemeProvider>
+        <ThemeProvider theme={theme}>
+          <RouterProvider router={AppRouter} />
+        </ThemeProvider>
       </CacheProvider>
     </>
   );
